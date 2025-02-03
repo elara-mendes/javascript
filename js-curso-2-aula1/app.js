@@ -5,6 +5,7 @@
 // paragraph.innerHTML = "Escolha um número entre 1 e 10";
 
 // let secretNumber = randomNumber();
+let numeroEscolhido = [];
 let secretNumber = randomNumber();
 let tentativas = 1;
 let reiniciarBotao = document.getElementById("reiniciar");
@@ -19,7 +20,19 @@ function showText(tag, text) {
 }
 
 function randomNumber() {
-    return parseInt(Math.random() * 10 + 1);
+    let numeroSelecionado = parseInt(Math.random() * 10 + 1);
+
+    if (numeroEscolhido.length == 10) {
+        numeroEscolhido = [];
+    }
+
+    if (numeroEscolhido.includes(numeroSelecionado)) {
+        return randomNumber();
+    } else {
+        numeroEscolhido.push(numeroSelecionado);
+        console.log(numeroEscolhido);
+        return numeroSelecionado;
+    }
 }
 
 function verificarChute() {

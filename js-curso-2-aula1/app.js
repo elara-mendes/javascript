@@ -17,6 +17,7 @@ mensagemInicial();
 function showText(tag, text) {
     let Element = document.querySelector(tag);
     Element.innerHTML = text;
+    responsiveVoice.speak(text, "Brazilian Portuguese Female", {rate:1.2});
 }
 
 function randomNumber() {
